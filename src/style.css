@@ -174,7 +174,6 @@ select:focus-visible, button:focus-visible, input:focus-visible { outline: 2px s
 .params td:first-child { color: var(--text); }
 .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; }
 .dot.rG { background: var(--good); } .dot.rM { background: var(--accent); } .dot.rB { background: var(--boulder); } .dot.rN { background: var(--bad); }
-.about-body .fine { font-size: 0.8rem; color: #6c7488; }
 .about-body ul { margin: 0 0 10px; padding-left: 20px; display: grid; gap: 6px; }
 .about-body .cap { margin: 14px 0 4px; font-weight: 700; color: var(--text); }
 .about-body code { font-family: ui-monospace, Menlo, Consolas, monospace; color: var(--accent); }

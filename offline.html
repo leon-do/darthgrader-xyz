@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en" translate="no">
   <head>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0f1115" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%2296%22%20fill%3D%22%230f1115%22/%3E%3Cpath%20d%3D%22M96%20384%20232%20168l56%2088%2048-72%2080%20200z%22%20fill%3D%22%23ffc83d%22/%3E%3Ccircle%20cx%3D%22352%22%20cy%3D%22136%22%20r%3D%2236%22%20fill%3D%22%235aa9ff%22/%3E%3C/svg%3E%0A" type="image/svg+xml" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%2296%22%20fill%3D%22%230f1115%22%2F%3E%3Cpath%20d%3D%22M96%20384%20232%20168l56%2088%2048-72%2080%20200z%22%20fill%3D%22%23ffc83d%22%2F%3E%3Ccircle%20cx%3D%22352%22%20cy%3D%22136%22%20r%3D%2236%22%20fill%3D%22%235aa9ff%22%2F%3E%3C%2Fsvg%3E%0A" type="image/svg+xml" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Grade Calc" />
+    <title>Climbing Grade Calc</title>
     <style>
 :root {
   --bg: #0f1115;
@@ -186,17 +186,16 @@ select:focus-visible, button:focus-visible, input:focus-visible { outline: 2px s
 .params td:first-child { color: var(--text); }
 .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; }
 .dot.rG { background: var(--good); } .dot.rM { background: var(--accent); } .dot.rB { background: var(--boulder); } .dot.rN { background: var(--bad); }
-.about-body .fine { font-size: 0.8rem; color: #6c7488; }
 .about-body ul { margin: 0 0 10px; padding-left: 20px; display: grid; gap: 6px; }
 .about-body .cap { margin: 14px 0 4px; font-weight: 700; color: var(--text); }
 .about-body code { font-family: ui-monospace, Menlo, Consolas, monospace; color: var(--accent); }
 
-</style>
-    <title>Climbing Grade Calc</title>
+    </style>
   </head>
   <body>
     <div id="app"></div>
     <script type="module">
+// ---- model.js ----
 // Grade model, fitted to measured readings of the original calculator and to the
 // method in the "Grading system in sport climbing" paper (darth-grader.net).
 // Internal scale: one unit = one route grade step (4a = 0, 4a+ = 1, 4b = 2 ...).
@@ -457,7 +456,7 @@ function computeBoth(climbType, str) {
   return { Fr: formatResult(climbType, 'Fr', value), US: formatResult(climbType, 'US', value) };
 }
 
-
+// ---- main.js ----
 
 const TYPES = [
   ['Route', 'Route'],
@@ -603,7 +602,6 @@ $('#app').innerHTML = `
           <li><b>Soft / hard</b>: <i>g</i> ∓ 0.35. <b>Slash</b>: the mean of the two grades.</li>
           <li><b>Result</b>: grade = ⌊<i>g</i>⌋; the fraction <i>g</i> − ⌊<i>g</i>⌋ ≤ 0.25 reads “soft”, above 0.75 “hard”, and within 0.05 of a boundary a slash such as 7a/7a+.</li>
         </ul>
-        <p class="fine">Fitted to over 200 measured examples of Darth Grader’s method. About 95% are reproduced exactly and nearly all the rest to within a few hundredths of a grade step; the curves are least certain at their far edges. A guide, not a verdict.</p>
       </div>
     </details>
   </footer>`;
@@ -784,7 +782,6 @@ if ('serviceWorker' in navigator && false) {
   window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
 }
 
-
-</script>
+    </script>
   </body>
 </html>

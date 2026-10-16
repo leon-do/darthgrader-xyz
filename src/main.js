@@ -1,5 +1,5 @@
 
-import { computeBoth, curve, REST_PARAMS, AFTER_PARAMS, FR_ROUTE, FR_BOULDER, routeLabel, boulderLabel } from "./model.js";
+import { computeBoth, curve, REST_PARAMS, AFTER_PARAMS, FR_ROUTE, FR_BOULDER, routeLabel, boulderLabel } from './model.js';
 
 const TYPES = [
   ['Route', 'Route'],
@@ -145,7 +145,6 @@ $('#app').innerHTML = `
           <li><b>Soft / hard</b>: <i>g</i> ∓ 0.35. <b>Slash</b>: the mean of the two grades.</li>
           <li><b>Result</b>: grade = ⌊<i>g</i>⌋; the fraction <i>g</i> − ⌊<i>g</i>⌋ ≤ 0.25 reads “soft”, above 0.75 “hard”, and within 0.05 of a boundary a slash such as 7a/7a+.</li>
         </ul>
-        <p class="fine">Fitted to over 200 measured examples of Darth Grader’s method. About 95% are reproduced exactly and nearly all the rest to within a few hundredths of a grade step; the curves are least certain at their far edges. A guide, not a verdict.</p>
       </div>
     </details>
   </footer>`;
